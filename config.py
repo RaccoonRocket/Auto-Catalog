@@ -1,0 +1,5 @@
+host = "127.0.0.1"
+port = "5432"
+db_name = "name"
+user = "user"
+password = "*****"
