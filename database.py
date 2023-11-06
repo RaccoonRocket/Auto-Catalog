@@ -1,16 +1,19 @@
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy import create_engine, MetaData, Table
 from config import db_data
 
+# creating the SQLAlchemy engine
+engine = create_engine(db_data)
+
+# creating a base class for models
 Base = declarative_base()
 
-engine = create_engine(db_data)
-engine.connect()
-
+# getting metadata for models
 metadata = MetaData()
 metadata.reflect(bind=engine, schema='car_catalog')
 
 
+# models whose objects are stored in the db
 class BrandCountry(Base):
     __table__ = Table('car_catalog.brand_country', metadata, autoload_with=engine)
 
@@ -61,3 +64,7 @@ class ModelDealership(Base):
 
 class Review(Base):
     __table__ = Table('car_catalog.reviews', metadata, autoload_with=engine)
+
+
+# creating a db connection session
+SessionLocal = sessionmaker(autoflush=False, bind=engine)
