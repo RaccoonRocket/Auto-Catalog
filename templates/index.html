@@ -1,15 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Catalog</title>
-     <link rel="stylesheet" href="./static/style.css">
+    <meta charset="utf-8" />
+    <title>AutoCatalog</title>
+<style>
+td {padding:5px;}
+button{margin: 5px;}
+</style>
 </head>
 <body>
-     <main>
-         <h1>hi</h1>
-     </main>
+    <h2>Список моделей</h2>
+    <div>
+        <input type="hidden" id="modelId" />
+        <p>
+            Модель:<br/>
+            <input id="modelName" />
+        </p>
+        <p>
+            Бренд:<br />
+            <input id="modelBrand" type="number" />
+        </p>
+         <p>
+            <button id="saveBtn">Сохранить</button>
+            <button id="resetBtn">Сбросить</button>
+        </p>
+    </div>
+    <table>
+        <thead><tr><th>Модель</th><th>Бренд</th><th></th></tr></thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Получение всех моделей
+        async function getModels() {
+            // отправляет запрос и получаем ответ
+            const response = await fetch("/api/models", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                // получаем данные
+                const models = await response.json();
+                const rows = document.querySelector("tbody");
+                // добавляем полученные элементы в таблицу
+                models.forEach(model => rows.append(row(model)));
+            }
+        }
+        // сброс данных формы после отправки
+        function reset() {
+            document.getElementById("modelId").value =
+            document.getElementById("modelName").value =
+            document.getElementById("modelBrand").value = "";
+        }
+        // создание строки для таблицы
+        function row(model) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", model[0]);
+
+            const nameTd = document.createElement("td");
+            nameTd.append(model[1]);
+            tr.append(nameTd);
+
+            const brandTd = document.createElement("td");
+            brandTd.append(model[2]);
+            tr.append(brandTd);
+
+            const linksTd = document.createElement("td");
+
+            const editLink = document.createElement("button");
+            editLink.append("Изменить");
+            editLink.addEventListener("click", async() => await getModel(model.id));
+            linksTd.append(editLink);
+
+            const removeLink = document.createElement("button");
+            removeLink.append("Удалить");
+            removeLink.addEventListener("click", async () => await deleteModel(model.id));
+
+            linksTd.append(removeLink);
+            tr.appendChild(linksTd);
+
+            return tr;
+        }
+        // сброс значений формы
+        document.getElementById("resetBtn").addEventListener("click", () =>  reset());
+
+        // загрузка пользователей
+        getModels();
+    </script>
 </body>
 </html>
