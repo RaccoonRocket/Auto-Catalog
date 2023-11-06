@@ -3,30 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <title>AutoCatalog</title>
-<style>
-td {padding:5px;}
-button{margin: 5px;}
-</style>
+    <style>
+        td {padding:5px;}
+        button{margin: 5px;}
+    </style>
+    <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
     <h2>Список моделей</h2>
-    <div>
-        <input type="hidden" id="modelId" />
-        <p>
-            Модель:<br/>
-            <input id="modelName" />
-        </p>
-        <p>
-            Бренд:<br />
-            <input id="modelBrand" type="number" />
-        </p>
-         <p>
-            <button id="saveBtn">Сохранить</button>
-            <button id="resetBtn">Сбросить</button>
-        </p>
-    </div>
+<!--    <div>-->
+<!--        <input type="hidden" id="modelId" />-->
+<!--        <p>-->
+<!--            Модель:<br/>-->
+<!--            <input id="modelName" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            Бренд:<br />-->
+<!--            <input id="modelBrand" type="number" />-->
+<!--        </p>-->
+<!--         <p>-->
+<!--            <button id="saveBtn">Сохранить</button>-->
+<!--            <button id="resetBtn">Сбросить</button>-->
+<!--        </p>-->
+<!--    </div>-->
     <table>
-        <thead><tr><th>Модель</th><th>Бренд</th><th></th></tr></thead>
+        <thead><tr><th>Модель</th><th>Бренд</th><th>Описание</th><th>Фотокарточка</th></tr></thead>
         <tbody>
         </tbody>
     </table>
@@ -48,13 +49,7 @@ button{margin: 5px;}
                 models.forEach(model => rows.append(row(model)));
             }
         }
-        // сброс данных формы после отправки
-        function reset() {
-            document.getElementById("modelId").value =
-            document.getElementById("modelName").value =
-            document.getElementById("modelBrand").value = "";
-        }
-        // создание строки для таблицы
+        // Создание строки для таблицы
         function row(model) {
             const tr = document.createElement("tr");
             tr.setAttribute("data-rowid", model[0]);
@@ -67,26 +62,21 @@ button{margin: 5px;}
             brandTd.append(model[2]);
             tr.append(brandTd);
 
-            const linksTd = document.createElement("td");
+            const descriptionTd = document.createElement("td");
+            descriptionTd.append(model[3]);
+            tr.append(descriptionTd);
 
-            const editLink = document.createElement("button");
-            editLink.append("Изменить");
-            editLink.addEventListener("click", async() => await getModel(model.id));
-            linksTd.append(editLink);
-
-            const removeLink = document.createElement("button");
-            removeLink.append("Удалить");
-            removeLink.addEventListener("click", async () => await deleteModel(model.id));
-
-            linksTd.append(removeLink);
-            tr.appendChild(linksTd);
+            const imageTd = document.createElement("td");
+            const image = document.createElement("img");
+            image.src = model[4]
+            imageTd.appendChild(image);
+            tr.appendChild(imageTd);
+<!--            imageTd.append(model[4]);-->
+<!--            tr.append(imageTd);-->
 
             return tr;
         }
-        // сброс значений формы
-        document.getElementById("resetBtn").addEventListener("click", () =>  reset());
-
-        // загрузка пользователей
+        // Загрузка пользователей
         getModels();
     </script>
 </body>
