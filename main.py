@@ -38,8 +38,22 @@ def get_models(db: Session = Depends(get_db)):
     # return db.query(Model).all()
 
 
+@app.get("/api/brands/{id}")
+def get_brand(id, db: Session = Depends(get_db)):
+    # getting brand by id
+    brand = (db.query(CarBrand.car_brand_name, ManufacturerCountry.name).
+             join(BrandCountry, CarBrand.car_brand_id == BrandCountry.car_brand_id).
+             join(ManufacturerCountry, BrandCountry.manufacturer_country_id == ManufacturerCountry.manufacturerid).
+             filter(CarBrand.car_brand_id == id).all())
+    # if not found, sending 404 & error message
+    if brand==None:
+        return JSONResponse(status_code=404, content={"message": "Бренд не найден"})
+    # if found, sending it
+    return brand
+
+
 # SessionLocal = sessionmaker(autoflush=False, bind=engine)
-# db = SessionLocal()
+db = SessionLocal()
 #
 # res1 = db.query(Model.modelid, CarBrand.car_brand_name, Model.name).join(CarBrand, Model.car_brand_id == CarBrand.car_brand_id).all()
 # processed_res1 = [{item[0], item[1], item[2]} for item in res1]
@@ -53,6 +67,15 @@ def get_models(db: Session = Depends(get_db)):
 # processed_models = [(item[0], item[1], item[2], item[3], item[4], item[5]) for item in models]
 # for result in models:
 #     print(result)
+
+# brand = (db.query(CarBrand.car_brand_name, ManufacturerCountry.name).
+#          join(BrandCountry, CarBrand.car_brand_id == BrandCountry.car_brand_id).
+#          join(ManufacturerCountry, BrandCountry.manufacturer_country_id == ManufacturerCountry.manufacturerid).
+#          filter(CarBrand.car_brand_id == 21).all())
+#
+# processed_brand = [(item[0], item[1]) for item in brand]
+# for result in brand:
+#      print(result)
 
 # # Print information about the tables and columns in the database
 # for table in metadata.tables.values():
