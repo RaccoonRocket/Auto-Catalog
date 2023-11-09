@@ -7,7 +7,6 @@
         td {padding:5px;}
         button{margin: 5px;}
     </style>
-<!--    <link rel="stylesheet" href="./static/script.js">-->
     <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
@@ -15,35 +14,48 @@
     <div>
         <p>
             Категория:<br/>
-            <input id="category" />
+            <input id="category" value="Все"/>
+            напишите "Все" чтобы искать среди всех моделей
         </p>
         <p>
-            Цена (в тыс.руб.):<br />
+            Цена:<br />
             <input type="number" id="minPrice" min="0" value="0"/>
-            <input type="number" id="maxPrice" min="0" value="15000"/>
+            <input type="number" id="maxPrice" min="0" value="15000000"/>
         </p>
         <p>
+            (не оставляйте поля пустыми)<br>
             <button id="selectorBtn">Выбрать</button>
         </p>
     </div>
-    <h2>О бренде</h2>
-    <div>
-        <p>
-            <input type="text" id="brand">
-        </p>
-        <p>
-            <button id="brandInfoBtn">Узнать больше</button>
-        </p>
-    </div>
+
     <h2>О модели</h2>
     <div>
         <p>
-            <input type="text" id="model">
-        </p>
-        <p>
-            <button id="modelInfoBtn">Узнать больше</button>
+            <input id="modelName" placeholder="Название модели"/>
+            <button id="modelBtn">Узнать больше</button>
         </p>
     </div>
+
+    <h2>О бренде</h2>
+    <div>
+        <p>
+            <input  id="brandName" placeholder="Название боенда"/>
+            <button id="brandBtn">Узнать больше</button>
+        </p>
+    </div>
+
+<!--&lt;!&ndash;    <h2>О модели</h2>&ndash;&gt;-->
+<!--    <form method="get" action="/model/">-->
+<!--&lt;!&ndash;        <input type="text" id="model">&ndash;&gt;-->
+<!--        <button type="submit">Узнать больше о конкретной модели</button>-->
+<!--    </form>-->
+
+<!--&lt;!&ndash;    <h2>О бренде</h2>&ndash;&gt;-->
+<!--    <form method="get" action="/brand/{id}">-->
+<!--        <input type="text" id="id">-->
+<!--        <button type="submit">Узнать больше о конкретном бренде</button>-->
+<!--    </form>-->
+
     <table>
         <thead><tr><th>Фотография</th><th>Модель</th><th>Бренд</th><th>Категория</th><th>Цена</th></tr></thead>
         <tbody>
