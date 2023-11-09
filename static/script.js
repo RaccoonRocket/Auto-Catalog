@@ -1,6 +1,6 @@
 const selector = document.getElementById("selectorBtn")
-//const brandInfo = document.getElementById("brandInfoBtn")
-//const modelInfo = document.getElementById("modelInfoBtn")
+const modelInfo = document.getElementById("modelInfoBtn")
+const brandInfo = document.getElementById("brandInfoBtn")
 
 // Получение всех моделей
 async function getModels() {
@@ -19,7 +19,9 @@ async function getModels() {
     }
 }
 
+// Получение моделей по заданным параметрам
 selector.onclick = async function getModels() {
+    // Получаем значения по id элемента из html
     const nameCategory = document.getElementById("category").value
     const minPrice = document.getElementById("minPrice").value
     const maxPrice = document.getElementById("maxPrice").value
@@ -40,6 +42,100 @@ selector.onclick = async function getModels() {
         models.forEach(model => rows.append(row(model)));
     }
 }
+
+// Создание строки для таблицы
+function row(model) {
+    const tr = document.createElement("tr");
+    tr.setAttribute("data-rowid", model[0]);
+
+    const imageTd = document.createElement("td");
+    const image = document.createElement("img");
+    image.src = model[1]
+    imageTd.appendChild(image);
+    tr.appendChild(imageTd);
+
+    const nameTd = document.createElement("td");
+    nameTd.append(model[2]);
+    tr.append(nameTd);
+
+    const brandTd = document.createElement("td");
+    brandTd.append(model[3]);
+    tr.append(brandTd);
+
+    const categoryTd = document.createElement("td");
+    categoryTd.append(model[4]);
+    tr.append(categoryTd);
+
+    const priceTd = document.createElement("td");
+    priceTd.append(model[5]);
+    tr.append(priceTd);
+
+    return tr;
+}
+
+// Удалит все значения в таблице
+async function reset() {
+    const rows = document.querySelector("tbody");
+    while (rows.firstChild) {
+        rows.removeChild(rows.firstChild);
+    }
+}
+
+// Загрузка пользователей
+getModels();
+
+
+
+
+
+
+
+//// Получение информации о конкретной модели
+//modelInfo.onclick = async function getInfoModel() {
+//    // Получаем значения по id элемента из html
+//    const modelName = document.getElementById("modelName").value
+//    // отправляет запрос и получаем ответ
+//    const response = await fetch(`/api/models/${modelName}`, {
+//        method: "GET",
+//        headers: { "Accept": "application/json" }
+//    });
+//    if (response.ok === true) {
+//        console.log("response ok")
+//        // сбрасываем все значения таблицы
+//        reset()
+//        // получаем данные
+//        const model = await response.json();
+//        const rows = document.querySelector("tbody");
+//        // добавляем полученные элементы в таблицу
+//        model.forEach(info => rows.append(row(info)));
+//    }
+//}
+//
+//// Получение информации о конкретном бренде
+//brandInfo.onclick = async function getInfoBrand() {
+//    // Получаем значения по id элемента из html
+//    const brandName = document.getElementById("brandName").value
+//    // отправляет запрос и получаем ответ
+//    const response = await fetch(`/api/brands/${brandName}`, {
+//        method: "GET",
+//        headers: { "Accept": "application/json" }
+//    });
+//    console.log(brandName)
+//    if (response.ok === true) {
+//        console.log("response ok")
+//        // сбрасываем все значения таблицы
+//        reset()
+//        // получаем данные
+//        const brand = await response.json();
+//        const rows = document.querySelector("tbody");
+//        // добавляем полученные элементы в таблицу
+//        brand.forEach(info => rows.append(row(info)));
+//    }
+//}
+
+
+// =========================================
+
 
 //// Получение моделей по заданным параметрам
 //selector.onclick = async function getSelectorsModels() {
@@ -108,44 +204,3 @@ selector.onclick = async function getModels() {
 //        headers: { "Accept": "application/json" }
 //    });
 //}
-
-// Создание строки для таблицы
-function row(model) {
-    const tr = document.createElement("tr");
-    tr.setAttribute("data-rowid", model[0]);
-
-    const imageTd = document.createElement("td");
-    const image = document.createElement("img");
-    image.src = model[1]
-    imageTd.appendChild(image);
-    tr.appendChild(imageTd);
-
-    const nameTd = document.createElement("td");
-    nameTd.append(model[2]);
-    tr.append(nameTd);
-
-    const brandTd = document.createElement("td");
-    brandTd.append(model[3]);
-    tr.append(brandTd);
-
-    const categoryTd = document.createElement("td");
-    categoryTd.append(model[4]);
-    tr.append(categoryTd);
-
-    const priceTd = document.createElement("td");
-    priceTd.append(model[5]);
-    tr.append(priceTd);
-
-    return tr;
-}
-
-// Удалит все значения в таблице
-async function reset() {
-    const rows = document.querySelector("tbody");
-    while (rows.firstChild) {
-        rows.removeChild(rows.firstChild);
-    }
-}
-
-// Загрузка пользователей
-getModels();

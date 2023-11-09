@@ -1,4 +1,4 @@
-h1 {
+h2 {
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grrande', 'Lucida Sans Unicode', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      color: black;
      margin: 0;
@@ -11,6 +11,6 @@ h1 {
 }
 
 img {
-  width: 100px;
-  height: 70px;
+    width: 150px;
+    height: 100px;
 }
