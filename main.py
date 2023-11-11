@@ -47,6 +47,21 @@ def get_all_models(db: Session = Depends(get_db)):
     return processed_models
 
 
+@app.get("/api/models/{modelName}")
+def get_brand_info(modelName, db: Session = Depends(get_db)):
+    print(modelName)
+    model = (db.query(Model.modelid, Image.url, Model.name, CarBrand.car_brand_name, Price.price,
+                       Description.description, Review.title, Review.text, Review.rating, Review.date).
+              join(Image, Model.modelid == Image.model_id).
+              join(CarBrand, Model.car_brand_id == CarBrand.car_brand_id).
+              join(Price, Model.modelid == Price.model_id).
+              join(Description, Model.modelid == Description.description_id).
+              join(Review, Model.modelid == Review.reviewid).all())
+    processed_model = [(item[0], item[1], item[2], item[3], item[4], item[5], item[6],
+                         item[7], item[8], item[9]) for item in model]
+    return processed_model
+
+
 @app.get("/api/brands/{brandName}")
 def get_brand_info(brandName, db: Session = Depends(get_db)):
     print(brandName)
@@ -152,3 +167,17 @@ db = SessionLocal()
 #     print("Table Name:", table.name)
 #     for column in table.c:
 #         print("Column Name:", column.name)
+# modelName = "Arrizo 8"
+# model = (db.query(Model.modelid, Image.url, Model.name, CarBrand.car_brand_name, Price.price,
+#                        Description.description).
+#               join(Image, Model.modelid == Image.model_id).
+#               join(CarBrand, Model.car_brand_id == CarBrand.car_brand_id).
+#               join(Price, Model.modelid == Price.model_id).
+#               join(Description, Model.modelid == Description.description_id).
+#          filter().all())
+# processed_model = [(item[0], item[1], item[2], item[3], item[4], item[5]) for item in model]
+# i=0
+# for result in processed_model:
+#      print(result)
+#      i+=1
+# print(i)

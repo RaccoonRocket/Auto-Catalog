@@ -16,16 +16,85 @@
 
     <h2>Список моделей</h2>
     <div>
-        <p>
-            Категория:<br/>
-            <input id="category" value="Все"/>
-            напишите "Все" чтобы искать среди всех моделей
-        </p>
-        <p>
-            Цена:<br />
-            <input type="number" id="minPrice" min="0" value="0"/>
-            <input type="number" id="maxPrice" min="0" value="15000000"/>
-        </p>
+<!--        <p>-->
+<!--            Категория:<br/>-->
+<!--            <input id="category" value="Все"/>-->
+<!--            напишите "Все" чтобы искать среди всех категорий-->
+<!--        </p>-->
+        <fieldset>
+            <legend>Категории:</legend>
+            <div>
+                <input type="checkbox" id="Sedan" name="Sedan" checked />
+                <label for="Sedan">Седан</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Crossover" name="Crossover" checked />
+                <label for="Crossover">Кроссовер</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Hatchback" name="Hatchback" checked />
+                <label for="Hatchback">Хэтчбек</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Universal" name="Universal" checked />
+                <label for="Universal">Универсал</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Suv" name="Suv" checked />
+                <label for="Suv">Внедорожник</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Сoupe" name="Сoupe" checked />
+                <label for="Сoupe">Купе</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Convertible" name="Convertible" checked />
+                <label for="Convertible">Кабриолет</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Pickup" name="Pickup" checked />
+                <label for="Pickup">Пикап</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Minivan" name="Minivan" checked />
+                <label for="Minivan">Минивэн</label>
+            </div>
+        </fieldset>
+
+<!--        <p>-->
+<!--            Цена:<br />-->
+<!--            <input type="number" id="minPrice" min="0" value="0"/>-->
+<!--            <input type="number" id="maxPrice" min="0" value="15000000"/>-->
+<!--        </p>-->
+<!--        <div class="slidecontainer">-->
+<!--            <input type="range" min="0" max="15000000" value="0" step="100000" class="slider" id="minPrice"-->
+<!--                   oninput="this.nextElementSibling.value = this.value">-->
+<!--            <output>15000000</output>-->
+<!--            <input type="range" min="0" max="15000000" value="15000000" step="100000" class="slider" id="maxPrice"-->
+<!--                   oninput="this.nextElementSibling.value = this.value">-->
+<!--            <output>15000000</output>-->
+<!--        </div>-->
+
+        <div class="card">
+            <h4>Цена:</h4>
+            <div class="range-slider">
+                <div class="range-fill"></div>
+                <input type="range" class="minPrice" min="0" max="15000000" value="0" step="100000"
+                       oninput="minPriceDisplay.value = this.value"/>
+                <input type="range" class="maxPrice" min="0" max="15000000" value="15000000" step="100000"
+                       oninput="maxPriceDisplay.value = this.value"/>
+                <br><output id="minPriceDisplay">0</output>
+                <br><output id="maxPriceDisplay">15000000</output>
+            </div>
+        </div>
+
+
+
+        <input type="radio" id="asc" name="orderBy" value="HTML" checked>
+        <label for="asc">По возрастанию цены</label><br>
+        <input type="radio" id="desc" name="orderBy" value="CSS">
+        <label for="desc">По убыванию цены</label><br>
+        <br>
         (не оставляйте поля пустыми)
         <p>
             <button id="selectorBtn">Выбрать</button>
