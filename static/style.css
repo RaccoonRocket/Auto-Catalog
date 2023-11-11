@@ -10,8 +10,9 @@
      transform: translateX(-50%) translateY(-50%);
 }*/
 
-h2 {
-    color: red;
+body {
+    background-color: #555;
+    color: #ffe;
 }
 
 img {
@@ -21,7 +22,7 @@ img {
 
 .card {
   width: 400px;
-  background-color: #fff;
+  background-color: #333; /*#fff;*/
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 9px 20px 0px rgba(14, 88, 48, 0.1);
