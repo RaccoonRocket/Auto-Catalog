@@ -1,6 +1,4 @@
 const selector = document.getElementById("selectorBtn")
-const modelInfo = document.getElementById("modelInfoBtn")
-const brandInfo = document.getElementById("brandInfoBtn")
 
 // Получение всех моделей
 async function getModels() {
@@ -21,18 +19,37 @@ async function getModels() {
 
 // Получение моделей по заданным параметрам
 selector.onclick = async function getModels() {
-    // Получаем значения по id элемента из html
-    const nameCategory = document.getElementById("category").value
-    const minPrice = document.getElementById("minPrice").value
-    const maxPrice = document.getElementById("maxPrice").value
+    // сбор параметров и преобразование значений
+    const brandForm = document.getElementById("brandForm")
+    const brandData = new FormData(brandForm)
+    const brandsValues = brandData.getAll("brandName")
+    var brands = brandsValues.join(",")
+    if (brands.length === 0) {
+        alert('Выберите хотя бы одну марку!');
+        return false; // Остановка отправки формы
+    }
+
+    const categoryForm = document.getElementById("categoryForm")
+    const categoryData = new FormData(categoryForm)
+    const categoriesValues = categoryData.getAll("categoryName")
+    var categories = categoriesValues.join(",")
+    if (categories.length === 0) {
+        alert('Выберите хотя бы одну категорию!');
+        return false; // Остановка отправки формы
+    }
+
+    const priceForm = document.getElementById("priceForm")
+    const priceData = new FormData(priceForm)
+    const pricesValues = priceData.getAll("priceName")
+    const prices = pricesValues.join(",")
+
     // отправляет запрос и получаем ответ
-    const response = await fetch(`/api/models/${nameCategory}/${minPrice}/${maxPrice}`, {
+    const response = await fetch(`/api/models/${brands}/${categories}/${prices}`, {
         method: "GET",
         headers: { "Accept": "application/json" }
     });
     // если запрос прошел нормально
     if (response.ok === true) {
-        console.log("response ok")
         // сбрасываем все значения таблицы
         reset()
         // получаем данные
