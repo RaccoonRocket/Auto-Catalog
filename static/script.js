@@ -65,25 +65,41 @@ function row(model) {
     const tr = document.createElement("tr");
     tr.setAttribute("data-rowid", model[0]);
 
+    // Создание ссылки для изображения
+    const imageLink = document.createElement("a");
+    imageLink.href = "/api/models/" + encodeURIComponent(model[0]);
     const imageTd = document.createElement("td");
+    imageTd.classList.add("image-cell");
     const image = document.createElement("img");
-    image.src = model[1]
+    image.src = model[1];
     imageTd.appendChild(image);
-    tr.appendChild(imageTd);
+    imageLink.appendChild(imageTd);
+    tr.appendChild(imageLink);
 
+    // Создание ссылки для имени
+    const nameLink = document.createElement("a");
+    nameLink.href = "/api/models/" + encodeURIComponent(model[0]);
     const nameTd = document.createElement("td");
+    nameTd.classList.add("name-cell");
     nameTd.append(model[2]);
-    tr.append(nameTd);
+    nameLink.appendChild(nameTd);
+    tr.append(nameLink);
 
+    const brandLink = document.createElement("a");
+    brandLink.href = "/api/brands/" + encodeURIComponent(model[3]);
     const brandTd = document.createElement("td");
+    brandTd.classList.add("brand-cell");
     brandTd.append(model[3]);
-    tr.append(brandTd);
+    brandLink.appendChild(brandTd);
+    tr.append(brandLink);
 
     const categoryTd = document.createElement("td");
+    categoryTd.classList.add("category-cell");
     categoryTd.append(model[4]);
     tr.append(categoryTd);
 
     const priceTd = document.createElement("td");
+    priceTd.classList.add("price-cell");
     priceTd.append(model[5]);
     tr.append(priceTd);
 

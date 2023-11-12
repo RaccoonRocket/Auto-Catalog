@@ -6,109 +6,113 @@
     <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
-    <form class="card" id="brandForm">
-        <legend align="center">Марки:</legend>
-        <div>
-            <input type="checkbox" id="Chery" name="brandName" value="Chery" checked />
-            <label for="Chery">Chery</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Haval" name="brandName" value="Haval" checked />
-            <label for="Haval">Haval</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Geely" name="brandName" value="Geely" checked />
-            <label for="Geely">Geely</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Exeed" name="brandName" value="Exeed" checked />
-            <label for="Exeed">Exeed</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Changan" name="brandName" value="Changan" checked />
-            <label for="Changan">Changan</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Zeekr" name="brandName" value="Zeekr" checked />
-            <label for="Zeekr">Zeekr</label>
-        </div>
-    </form>
+    <div id="sidebar">
+        <form class="card" id="brandForm">
+            <legend align="center">Марки:</legend>
+            <div>
+                <input type="checkbox" id="Chery" name="brandName" value="Chery" checked />
+                <label for="Chery">Chery</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Haval" name="brandName" value="Haval" checked />
+                <label for="Haval">Haval</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Geely" name="brandName" value="Geely" checked />
+                <label for="Geely">Geely</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Exeed" name="brandName" value="Exeed" checked />
+                <label for="Exeed">Exeed</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Changan" name="brandName" value="Changan" checked />
+                <label for="Changan">Changan</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Zeekr" name="brandName" value="Zeekr" checked />
+                <label for="Zeekr">Zeekr</label>
+            </div>
+        </form>
 
-    <form class="card" id="categoryForm">
-        <legend align="center">Категории:</legend>
-        <div>
-            <input type="checkbox" id="Sedan" name="categoryName" value="Седан" checked />
-            <label for="Sedan">Седан</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Crossover" name="categoryName" value="Кроссовер" checked />
-            <label for="Crossover">Кроссовер</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Hatchback" name="categoryName" value="Хэтчбек" checked />
-            <label for="Hatchback">Хэтчбек</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Universal" name="categoryName" value="Универсал" checked />
-            <label for="Universal">Универсал</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Suv" name="categoryName" value="Внедорожник" checked />
-            <label for="Suv">Внедорожник</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Сoupe" name="categoryName" value="Купе" checked />
-            <label for="Сoupe">Купе</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Convertible" name="categoryName" value="Кабриолет" checked />
-            <label for="Convertible">Кабриолет</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Pickup" name="categoryName" value="Пикап" checked />
-            <label for="Pickup">Пикап</label>
-        </div>
-        <div>
-            <input type="checkbox" id="Minivan" name="categoryName" value="Минивэн" checked />
-            <label for="Minivan">Минивэн</label>
-        </div>
-    </form>
+        <form class="card" id="categoryForm">
+            <legend align="center">Категории:</legend>
+            <div>
+                <input type="checkbox" id="Sedan" name="categoryName" value="Седан" checked />
+                <label for="Sedan">Седан</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Crossover" name="categoryName" value="Кроссовер" checked />
+                <label for="Crossover">Кроссовер</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Hatchback" name="categoryName" value="Хэтчбек" checked />
+                <label for="Hatchback">Хэтчбек</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Universal" name="categoryName" value="Универсал" checked />
+                <label for="Universal">Универсал</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Suv" name="categoryName" value="Внедорожник" checked />
+                <label for="Suv">Внедорожник</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Сoupe" name="categoryName" value="Купе" checked />
+                <label for="Сoupe">Купе</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Convertible" name="categoryName" value="Кабриолет" checked />
+                <label for="Convertible">Кабриолет</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Pickup" name="categoryName" value="Пикап" checked />
+                <label for="Pickup">Пикап</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Minivan" name="categoryName" value="Минивэн" checked />
+                <label for="Minivan">Минивэн</label>
+            </div>
+        </form>
 
-    <form class="card" id="priceForm">
-        <legend align="center">Цена:</legend>
-        <div id="price" class="range-slider">
-            <div class="range-fill"></div>
-            <input type="range" class="minPrice" min="0" max="15000000" value="0" step="100000" name="priceName"
-                   oninput="minPriceDisplay.value = this.value"/>
-            <input type="range" class="maxPrice" min="0" max="15000000" value="15000000" step="100000" name="priceName"
-                   oninput="maxPriceDisplay.value = this.value"/>
-            <br>
-            <p style="display: flex; justify-content: space-between;">
-                <output id="minPriceDisplay">0</output>
-                <span>
-                    <output id="maxPriceDisplay">15000000</output>
-                </span>
-            </p>
-        </div>
-        <div>
-            <input type="radio" id="asc" name="priceName" value="asc" checked>
-            <label for="asc">По возрастанию цены</label>
-            <br>
-            <input type="radio" id="desc" name="priceName" value="desc">
-            <label for="desc">По убыванию цены</label>
-        </div>
-    </form>
+        <form class="card" id="priceForm">
+            <legend align="center">Цена:</legend>
+            <div id="price" class="range-slider">
+                <div class="range-fill"></div>
+                <input type="range" class="minPrice" min="0" max="15000000" value="0" step="100000" name="priceName"
+                       oninput="minPriceDisplay.value = this.value"/>
+                <input type="range" class="maxPrice" min="0" max="15000000" value="15000000" step="100000" name="priceName"
+                       oninput="maxPriceDisplay.value = this.value"/>
+                <br>
+                <p style="display: flex; justify-content: space-between;">
+                    <output id="minPriceDisplay">0</output>
+                    <span>
+                        <output id="maxPriceDisplay">15000000</output>
+                    </span>
+                </p>
+            </div>
+            <div>
+                <input type="radio" id="asc" name="priceName" value="asc" checked>
+                <label for="asc">По возрастанию цены</label>
+                <br>
+                <input type="radio" id="desc" name="priceName" value="desc">
+                <label for="desc">По убыванию цены</label>
+            </div>
+        </form>
 
-    <p>
-        <button id="selectorBtn">Выбрать</button>
-    </p>
+        <p>
+            <button id="selectorBtn">Выбрать</button>
+        </p>
+    </div>
 
-    <table>
-        <thead><tr><th>Фотография</th><th>Модель</th><th>Марка</th><th>Категория</th><th>Цена</th></tr></thead>
-        <tbody>
-        </tbody>
-    </table>
-
+    <div id="content">
+        <table>
+            <thead><tr><th>&nbsp;Фотография Модель Марка &nbsp;</th><th>Категория</th><th>Цена</th></tr></thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
     <script src="./static/script.js"></script>
 </body>
 </html>
