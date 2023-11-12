@@ -1,28 +1,12 @@
-/*h1 {
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grrande', 'Lucida Sans Unicode', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     color: black;
-     margin: 0;
-     padding: 0;
-     text-align: center;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translateX(-50%) translateY(-50%);
-}*/
-
+/*=======filters=======*/
 body {
     background-color: #555;
     color: #ffe;
 }
 
-img {
-    width: 210px;
-    height: 140px;
-}
-
 .card {
-  width: 400px;
-  background-color: #333; /*#fff;*/
+  width: auto;
+  background-color: #333;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 9px 20px 0px rgba(14, 88, 48, 0.1);
@@ -54,7 +38,7 @@ p {
 }
 
 .range-slider {
-  width: 400px;
+  width: auto;
   position: relative;
   margin: 15px 0 30px 0;
 }
@@ -79,7 +63,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: #36b37e;
+  background: #CF9B74;
   cursor: pointer;
   margin-top: -5px;
   position: relative;
@@ -92,4 +76,225 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: #e8e8e8;
   border-radius: 3px;
   border: none;
+}
+
+/*=======table=======*/
+
+.name-cell {
+    width: 200px;
+}
+
+.brand-cell {
+    width: 200px;
+}
+
+.category-cell {
+    width: 150px;
+}
+
+.price-cell {
+    width: 150px;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+    height: auto;
+}
+
+/* Стилизация заголовков таблицы */
+th {
+    background-color: #333;
+    text-align: justify;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Отмена выравнивания для последнего слова */
+th::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+/*=======sidebar=======*/
+/* Стилизация сайдбара */
+#sidebar {
+    width: 250px;
+    /*background-color: #
+    border-radius: 5px;*/
+    padding: 10px;
+    box-sizing: border-box;
+    float: left;
+    position: fixed; /* Фиксированная позиция */
+    top: 0; /* Располагаем сайдбар вверху страницы */
+    left: 0; /* Располагаем сайдбар слева */
+    height: 100%; /* Занимает 100% высоты окна просмотра */
+    overflow-y: auto; /* Добавляет вертикальную прокрутку при необходимости */
+}
+
+/* Остальной контент */
+#content {
+    margin-left: 250px; /* Учитываем ширину сайдбара в основном контенте */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+/* Стилизация чекбокса */
+input[type="checkbox"] {
+    appearance: none; /* Убирает стандартные стили браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px; /* Ширина чекбокса */
+    height: 20px; /* Высота чекбокса */
+    border: 2px solid #666; /* Цвет границы чекбокса */
+    outline: none; /* Убирает контур фокуса */
+    border-radius: 4px; /* Закругление углов */
+    cursor: pointer; /* Изменение курсора при наведении */
+}
+
+/* Стилизация галочки в чекбоксе */
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Юникод-символ галочки */
+    display: block;
+    text-align: center;
+    line-height: 20px; /* Выравнивание галочки по центру */
+    color: #36b37e; /* Цвет галочки */
+}
+
+/* Стилизация radio-кнопок */
+input[type="radio"] {
+    appearance: none; /* Убирает стандартные стили браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px; /* Ширина radio-кнопки */
+    height: 20px; /* Высота radio-кнопки */
+    border: 2px solid #666; /* Цвет границы radio-кнопки */
+    border-radius: 50%; /* Превращает в круг */
+    outline: none; /* Убирает контур фокуса */
+    cursor: pointer; /* Изменение курсора при наведении */
+}
+
+/* Стилизация radio-кнопок при выборе */
+input[type="radio"]:checked {
+    background-color: #36b37e; /* Цвет фона при выборе */
+    border-color: #36b37e; /* Цвет границы при выборе */
+}
+
+/* Стилизация ползунка */
+input[type="range"] {
+    width: 100%; /* Занимает всю доступную ширину контейнера */
+    height: 10px; /* Высота ползунка */
+    -webkit-appearance: none; /* Убирает стандартные стили браузера в WebKit браузерах */
+    margin: 10px 0; /* Отступ сверху и снизу */
+    background-color: #f2f2f2; /* Цвет фона ползунка */
+    border: none; /* Убирает границу ползунка */
+    border-radius: 5px; /* Закругление углов ползунка */
+}
+
+/* Стилизация заполненной части ползунка */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px; /* Высота заполненной части ползунка */
+    background-color: #36b37e; /* Цвет заполненной части ползунка */
+    border-radius: 5px; /* Закругление углов заполненной части ползунка */
+}
+
+/* Стилизация бегунка ползунка */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убирает стандартные стили браузера в WebKit браузерах */
+    width: 20px; /* Ширина бегунка */
+    height: 20px; /* Высота бегунка */
+    background-color: #36b37e; /* Цвет бегунка */
+    border: 2px solid #ffffff; /* Граница бегунка */
+    border-radius: 50%; /* Превращает бегунок в круг */
+    margin-top: -5px; /* Коррекция вертикального положения бегунка */
+}
+
+/* Стилизация кнопки */
+button {
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: bold; /* Полужирный текст */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убирает подчеркивание по умолчанию */
+    display: inline-block; /* Располагает кнопку в ряд с соседними элементами */
+    cursor: pointer; /* Изменение курсора при наведении */
+    border: none; /* Убирает границу кнопки */
+    border-radius: 5px; /* Закругление углов кнопки */
+    background-color: #36b37e; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста кнопки */
+}
+
+/* Стилизация кнопки при наведении */
+button:hover {
+    background-color: #2c956e; /* Изменение цвета фона при наведении */
+}
+
+/* Стилизация полосы прокрутки для Firefox */
+@-moz-document url-prefix() {
+    /* Цвет полосы прокрутки страницы */
+    body {
+        scrollbar-color: #36b37e #f2f2f2;
+    }
+
+    /* Ширина полосы прокрутки сайдбара (если нужно) */
+    #sidebar::-moz-scrollbar {
+        width: 12px;
+    }
+}
+
+/* Стилизация полосы прокрутки для остальных браузеров */
+/* (Chrome, Safari, Edge) */
+body {
+    scrollbar-width: thin;
+}
+
+/* Цвет трека полосы прокрутки страницы */
+body::-webkit-scrollbar-track {
+    background-color: #555;
+}
+
+/* Цвет полосы прокрутки страницы */
+body::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+/* Ширина полосы прокрутки страницы (если нужно) */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Стилизация полосы прокрутки сайдбара */
+#sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Цвет трека полосы прокрутки сайдбара */
+#sidebar::-webkit-scrollbar-track {
+    background-color: #555;
+}
+
+/* Цвет полосы прокрутки сайдбара */
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: #333;
 }
