@@ -14,6 +14,10 @@ async function getModels() {
         const rows = document.querySelector("tbody");
         // добавляем полученные элементы в таблицу
         models.forEach(model => rows.append(row(model)));
+        // выводим кол-во всех моделей
+        const rowsCount = getRowsCount();
+        var count = "Найдено: " + rowsCount;
+        document.getElementById("countModel").textContent = count;
     }
 }
 
@@ -57,6 +61,10 @@ selector.onclick = async function getModels() {
         const rows = document.querySelector("tbody");
         // добавляем полученные элементы в таблицу
         models.forEach(model => rows.append(row(model)));
+        // выводим кол-во найденных моделей
+        const rowsCount = getRowsCount();
+        var count = "Найдено: " + rowsCount;
+        document.getElementById("countModel").textContent = count;
     }
 }
 
@@ -112,6 +120,13 @@ async function reset() {
     while (rows.firstChild) {
         rows.removeChild(rows.firstChild);
     }
+}
+
+// Подсчитывает кол-во строк в таблице
+function getRowsCount() {
+  let table = document.getElementById('content')
+  let tBody = table.querySelector('tbody');
+  return tBody.querySelectorAll('tr').length;
 }
 
 // Загрузка пользователей
