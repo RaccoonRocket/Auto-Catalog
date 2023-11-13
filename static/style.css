@@ -10,19 +10,6 @@ body {
   padding: 20px;
   box-shadow: 0px 9px 20px 0px rgba(14, 88, 48, 0.1);
 }
-h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #000;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.price-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 10px;
-}
 label {
   font-size: 14px;
   font-weight: 500;
@@ -42,43 +29,9 @@ p {
   position: absolute;
   z-index: 1;
 }
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  background: transparent;
-  position: absolute;
-  left: 0;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background: #CF9B74;
-  cursor: pointer;
-  margin-top: -5px;
-  position: relative;
-  z-index: 1;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 5px;
-  background: #e8e8e8;
-  border-radius: 3px;
-  border: none;
-}
 /*=======table=======*/
-.name-cell {
+.cell {
     width: 200px;
-}
-.brand-cell {
-    width: 200px;
-}
-.category-cell {
-    width: 150px;
-}
-.price-cell {
-    width: 150px;
 }
 td {
     padding: 12px;
@@ -115,8 +68,6 @@ th::after {
 /* Стилизация сайдбара */
 #sidebar {
     width: 250px;
-    /*background-color: #
-    border-radius: 5px;*/
     padding: 10px;
     box-sizing: border-box;
     float: left;
@@ -174,6 +125,7 @@ input[type="radio"]:checked {
 }
 /* Стилизация ползунка */
 input[type="range"] {
+    position: absolute;
     width: 100%; /* Занимает всю доступную ширину контейнера */
     height: 10px; /* Высота ползунка */
     -webkit-appearance: none; /* Убирает стандартные стили браузера в WebKit браузерах */
@@ -197,6 +149,8 @@ input[type="range"]::-webkit-slider-thumb {
     border: 2px solid #ffffff; /* Граница бегунка */
     border-radius: 50%; /* Превращает бегунок в круг */
     margin-top: -5px; /* Коррекция вертикального положения бегунка */
+    position: relative;
+    z-index: 1;
 }
 /* Стилизация кнопки */
 button {

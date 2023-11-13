@@ -80,7 +80,7 @@ function row(model) {
     const nameLink = document.createElement("a");
     nameLink.href = "/model/" + encodeURIComponent(model[0]);
     const nameTd = document.createElement("td");
-    nameTd.classList.add("name-cell");
+    nameTd.classList.add("cell");
     nameTd.append(model[2]);
     nameLink.appendChild(nameTd);
     tr.append(nameLink);
@@ -88,18 +88,18 @@ function row(model) {
     const brandLink = document.createElement("a");
     brandLink.href = "/brand/" + encodeURIComponent(model[3]);
     const brandTd = document.createElement("td");
-    brandTd.classList.add("brand-cell");
+    brandTd.classList.add("cell");
     brandTd.append(model[3]);
     brandLink.appendChild(brandTd);
     tr.append(brandLink);
 
     const categoryTd = document.createElement("td");
-    categoryTd.classList.add("category-cell");
+    categoryTd.classList.add("cell");
     categoryTd.append(model[4]);
     tr.append(categoryTd);
 
     const priceTd = document.createElement("td");
-    priceTd.classList.add("price-cell");
+    priceTd.classList.add("cell");
     priceTd.append(model[5]);
     tr.append(priceTd);
 
