@@ -67,7 +67,7 @@ function row(model) {
 
     // Создание ссылки для изображения
     const imageLink = document.createElement("a");
-    imageLink.href = "/api/models/" + encodeURIComponent(model[0]);
+    imageLink.href = "/model/" + encodeURIComponent(model[0]);
     const imageTd = document.createElement("td");
     imageTd.classList.add("image-cell");
     const image = document.createElement("img");
@@ -78,7 +78,7 @@ function row(model) {
 
     // Создание ссылки для имени
     const nameLink = document.createElement("a");
-    nameLink.href = "/api/models/" + encodeURIComponent(model[0]);
+    nameLink.href = "/model/" + encodeURIComponent(model[0]);
     const nameTd = document.createElement("td");
     nameTd.classList.add("name-cell");
     nameTd.append(model[2]);
@@ -86,7 +86,7 @@ function row(model) {
     tr.append(nameLink);
 
     const brandLink = document.createElement("a");
-    brandLink.href = "/api/brands/" + encodeURIComponent(model[3]);
+    brandLink.href = "/brand/" + encodeURIComponent(model[3]);
     const brandTd = document.createElement("td");
     brandTd.classList.add("brand-cell");
     brandTd.append(model[3]);

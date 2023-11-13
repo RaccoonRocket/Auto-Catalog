@@ -27,23 +27,18 @@ def get_db():
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-# @app.get("/")
-# def main():
-#     return FileResponse("templates/index.html")
+def main():
+    return FileResponse("templates/index.html")
 
 
 @app.get("/model/{id}")
-def get_model(id):
-    pass
+def get_model():
+    return FileResponse("templates/about_model.html")
 
 
-@app.get("brand/{name}")
-def get_brand(name):
-    pass
+@app.get("/brand/{name}")
+def get_brand():
+    return FileResponse("templates/about_brand.html")
 
 
 @app.get("/api/models")
