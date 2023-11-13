@@ -1,9 +1,13 @@
-const sendBtn = document.getElementById("modelInfoBtn")
+async function modelInfo() {
+    // Получаем текущий URL
+    var currentUrl = window.location.href;
+    // Создаем объект URL
+    var url = new URL(currentUrl);
+    // Извлекаем параметры из URL
+    var itemPath = url.pathname.replace(/^\/|\/$/g, ''); // убираем начальный и конечный слэш, если есть
+    var modelId = itemPath.split('/').pop(); // берем последнюю часть пути
 
-sendBtn.onclick = async function modelInfo() {
-    const modelName = document.getElementById("modelName").value
-    console.log(modelName)
-    const response = await fetch(`/api/models/${modelName}`, {
+    const response = await fetch(`/api/models/${modelId}`, {
         method: "GET",
         headers: { "Accept": "application/json" }
     });
@@ -23,10 +27,36 @@ function row(model) {
     console.log(model[0])
     tr.setAttribute("data-rowid", model[0]);
 
+    const imageTd = document.createElement("td");
+    const image = document.createElement("img");
+    image.src = model[1]
+    imageTd.appendChild(image);
+    tr.appendChild(imageTd);
+
     const nameTd = document.createElement("td");
-    console.log(model[1])
-    nameTd.append(model[1]);
+//    nameTd.classList.add("price-cell");
+    nameTd.append(model[2]);
     tr.append(nameTd);
+
+    const brandTd = document.createElement("td");
+//    priceTd.classList.add("price-cell");
+    brandTd.append(model[3]);
+    tr.append(brandTd);
+
+    const categoryTd = document.createElement("td");
+//    priceTd.classList.add("price-cell");
+    categoryTd.append(model[4]);
+    tr.append(categoryTd);
+
+    const priceTd = document.createElement("td");
+//    priceTd.classList.add("price-cell");
+    priceTd.append(model[5]);
+    tr.append(priceTd);
+
+    const descriptionTd = document.createElement("td");
+//    priceTd.classList.add("price-cell");
+    descriptionTd.append(model[6]);
+    tr.append(descriptionTd);
 
     return tr;
 }
@@ -38,3 +68,5 @@ async function reset() {
         rows.removeChild(rows.firstChild);
     }
 }
+
+modelInfo();
