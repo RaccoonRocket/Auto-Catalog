@@ -1,8 +1,12 @@
-const sendBtn = document.getElementById("brandInfoBtn")
+async function brandInfo() {
+    // Получаем текущий URL
+    var currentUrl = window.location.href;
+    // Создаем объект URL
+    var url = new URL(currentUrl);
+    // Извлекаем параметры из URL
+    var itemPath = url.pathname.replace(/^\/|\/$/g, ''); // убираем начальный и конечный слэш, если есть
+    var brandName = itemPath.split('/').pop(); // берем последнюю часть пути
 
-sendBtn.onclick = async function brandInfo() {
-    const brandName = document.getElementById("brandName").value
-    console.log(brandName)
     const response = await fetch(`/api/brands/${brandName}`, {
         method: "GET",
         headers: { "Accept": "application/json" }
@@ -38,3 +42,5 @@ async function reset() {
         rows.removeChild(rows.firstChild);
     }
 }
+
+brandInfo();
