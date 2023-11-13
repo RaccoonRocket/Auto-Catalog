@@ -3,7 +3,6 @@ body {
     background-color: #555;
     color: #ffe;
 }
-
 .card {
   width: auto;
   background-color: #333;
@@ -11,7 +10,6 @@ body {
   padding: 20px;
   box-shadow: 0px 9px 20px 0px rgba(14, 88, 48, 0.1);
 }
-
 h4 {
   font-size: 18px;
   font-weight: 500;
@@ -19,37 +17,31 @@ h4 {
   margin-bottom: 20px;
   text-align: center;
 }
-
 .price-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 10px;
 }
-
 label {
   font-size: 14px;
   font-weight: 500;
 }
-
 p {
   font-size: 16px;
   font-weight: 600;
 }
-
 .range-slider {
   width: auto;
   position: relative;
   margin: 15px 0 30px 0;
 }
-
 .range-fill {
   height: 6px;
   background-color: #36b37e;
   position: absolute;
   z-index: 1;
 }
-
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
@@ -57,7 +49,6 @@ input[type="range"] {
   position: absolute;
   left: 0;
 }
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 15px;
@@ -69,7 +60,6 @@ input[type="range"]::-webkit-slider-thumb {
   position: relative;
   z-index: 1;
 }
-
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 5px;
@@ -77,47 +67,37 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 3px;
   border: none;
 }
-
 /*=======table=======*/
-
 .name-cell {
     width: 200px;
 }
-
 .brand-cell {
     width: 200px;
 }
-
 .category-cell {
     width: 150px;
 }
-
 .price-cell {
     width: 150px;
 }
-
 td {
     padding: 12px;
     border: 1px solid #ddd;
     text-align: left;
 }
-
 a {
     text-decoration: none;
     color: #ffffff;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 img {
     display: block;
     margin: 0 auto;
     max-width: 250px;
     height: auto;
 }
-
 /* Стилизация заголовков таблицы */
 th {
     background-color: #333;
@@ -125,14 +105,12 @@ th {
     border-radius: 5px;
     padding: 15px;
 }
-
 /* Отмена выравнивания для последнего слова */
 th::after {
     content: "";
     display: inline-block;
     width: 100%;
 }
-
 /*=======sidebar=======*/
 /* Стилизация сайдбара */
 #sidebar {
@@ -148,18 +126,15 @@ th::after {
     height: 100%; /* Занимает 100% высоты окна просмотра */
     overflow-y: auto; /* Добавляет вертикальную прокрутку при необходимости */
 }
-
 /* Остальной контент */
 #content {
     margin-left: 250px; /* Учитываем ширину сайдбара в основном контенте */
     padding: 20px;
     box-sizing: border-box;
 }
-
 form {
     margin-bottom: 10px;
 }
-
 /* Стилизация чекбокса */
 input[type="checkbox"] {
     appearance: none; /* Убирает стандартные стили браузера */
@@ -172,7 +147,6 @@ input[type="checkbox"] {
     border-radius: 4px; /* Закругление углов */
     cursor: pointer; /* Изменение курсора при наведении */
 }
-
 /* Стилизация галочки в чекбоксе */
 input[type="checkbox"]:checked::before {
     content: '\2713'; /* Юникод-символ галочки */
@@ -181,7 +155,6 @@ input[type="checkbox"]:checked::before {
     line-height: 20px; /* Выравнивание галочки по центру */
     color: #36b37e; /* Цвет галочки */
 }
-
 /* Стилизация radio-кнопок */
 input[type="radio"] {
     appearance: none; /* Убирает стандартные стили браузера */
@@ -194,13 +167,11 @@ input[type="radio"] {
     outline: none; /* Убирает контур фокуса */
     cursor: pointer; /* Изменение курсора при наведении */
 }
-
 /* Стилизация radio-кнопок при выборе */
 input[type="radio"]:checked {
     background-color: #36b37e; /* Цвет фона при выборе */
     border-color: #36b37e; /* Цвет границы при выборе */
 }
-
 /* Стилизация ползунка */
 input[type="range"] {
     width: 100%; /* Занимает всю доступную ширину контейнера */
@@ -211,14 +182,12 @@ input[type="range"] {
     border: none; /* Убирает границу ползунка */
     border-radius: 5px; /* Закругление углов ползунка */
 }
-
 /* Стилизация заполненной части ползунка */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 10px; /* Высота заполненной части ползунка */
     background-color: #36b37e; /* Цвет заполненной части ползунка */
     border-radius: 5px; /* Закругление углов заполненной части ползунка */
 }
-
 /* Стилизация бегунка ползунка */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Убирает стандартные стили браузера в WebKit браузерах */
@@ -229,7 +198,6 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%; /* Превращает бегунок в круг */
     margin-top: -5px; /* Коррекция вертикального положения бегунка */
 }
-
 /* Стилизация кнопки */
 button {
     padding: 10px 20px; /* Отступы внутри кнопки */
@@ -244,56 +212,45 @@ button {
     background-color: #36b37e; /* Цвет фона кнопки */
     color: #ffffff; /* Цвет текста кнопки */
 }
-
 /* Стилизация кнопки при наведении */
 button:hover {
     background-color: #2c956e; /* Изменение цвета фона при наведении */
 }
-
 /* Стилизация полосы прокрутки для Firefox */
 @-moz-document url-prefix() {
     /* Цвет полосы прокрутки страницы */
     body {
         scrollbar-color: #36b37e #f2f2f2;
     }
-
     /* Ширина полосы прокрутки сайдбара (если нужно) */
     #sidebar::-moz-scrollbar {
         width: 12px;
     }
 }
-
 /* Стилизация полосы прокрутки для остальных браузеров */
-/* (Chrome, Safari, Edge) */
 body {
     scrollbar-width: thin;
 }
-
 /* Цвет трека полосы прокрутки страницы */
 body::-webkit-scrollbar-track {
     background-color: #555;
 }
-
 /* Цвет полосы прокрутки страницы */
 body::-webkit-scrollbar-thumb {
     background-color: #333;
 }
-
 /* Ширина полосы прокрутки страницы (если нужно) */
 body::-webkit-scrollbar {
     width: 12px;
 }
-
 /* Стилизация полосы прокрутки сайдбара */
 #sidebar::-webkit-scrollbar {
     width: 5px;
 }
-
 /* Цвет трека полосы прокрутки сайдбара */
 #sidebar::-webkit-scrollbar-track {
     background-color: #555;
 }
-
 /* Цвет полосы прокрутки сайдбара */
 #sidebar::-webkit-scrollbar-thumb {
     background-color: #333;
