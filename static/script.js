@@ -28,19 +28,15 @@ selector.onclick = async function getModels() {
     const brandData = new FormData(brandForm)
     const brandsValues = brandData.getAll("brandName")
     var brands = brandsValues.join(",")
-    if (brands.length === 0) {
-        alert('Выберите хотя бы одну марку!');
-        return false; // Остановка отправки формы
-    }
+    if (brands.length === 0)
+        brands = ["Chery", "Haval", "Geely", "Exeed", "Changan", "Zeekr"].join(",")
 
     const categoryForm = document.getElementById("categoryForm")
     const categoryData = new FormData(categoryForm)
     const categoriesValues = categoryData.getAll("categoryName")
     var categories = categoriesValues.join(",")
-    if (categories.length === 0) {
-        alert('Выберите хотя бы одну категорию!');
-        return false; // Остановка отправки формы
-    }
+    if (categories.length === 0)
+        categories = ["Седан", "Кроссовер", "Хэтчбек", "Универсал", "Внедорожник", "Купе", "Кабриолет", "Пикап", "Минивэн"].join(",")
 
     const priceForm = document.getElementById("priceForm")
     const priceData = new FormData(priceForm)
