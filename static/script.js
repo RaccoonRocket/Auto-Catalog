@@ -11,6 +11,7 @@ async function getModels() {
     if (response.ok === true) {
         // получаем данные
         const models = await response.json();
+        console.log(models)
         const rows = document.querySelector("tbody");
         // добавляем полученные элементы в таблицу
         models.forEach(model => rows.append(row(model)));
@@ -96,17 +97,6 @@ function row(model) {
     brandTd.append(model[3]);
     brandLink.appendChild(brandTd);
     tr.append(brandLink);
-
-    const categoryTd = document.createElement("td");
-    categoryTd.classList.add("cell");
-    categoryTd.append(model[4]);
-    tr.append(categoryTd);
-
-    const priceTd = document.createElement("td");
-    priceTd.classList.add("cell");
-    priceTd.append(model[5]);
-    tr.append(priceTd);
-
     return tr;
 }
 

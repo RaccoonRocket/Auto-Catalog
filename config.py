@@ -1,1 +1,1 @@
-db_data = "dialect+driver://username:password@host:port/database"
+db_data = "postgresql+psycopg2://postgres:mysecretpassword@172.17.0.3:5432/postgres"
