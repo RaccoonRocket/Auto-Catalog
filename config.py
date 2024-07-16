@@ -1,1 +1,1 @@
-db_data = "postgresql+psycopg2://postgres:mysecretpassword@172.17.0.3:5432/postgres"
+db_data = "postgresql+psycopg2://postgres:mysecretpassword@my-postgres:5432/postgres"
